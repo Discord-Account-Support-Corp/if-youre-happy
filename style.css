@@ -1,26 +1,47 @@
+/* General look & feel */
 body {
-  font-family: 'Comic Sans MS', sans-serif;
-  background-color: #fffbf0;
+  font-family: "Comic Sans MS", sans-serif;
+  background: #fffbf0;
   text-align: center;
+  margin: 0;
   padding: 20px;
 }
 
+h1 { margin-top: 0; }
+
+/* Character images (optional) */
 .character {
-  height: 200px;
-  margin: 20px;
-  transition: transform 0.3s;
-}
-
-button {
-  font-size: 20px;
-  padding: 15px;
+  height: 180px;
   margin: 10px;
-  background-color: #ffd966;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
 }
 
-button:hover {
-  background-color: #ffeb99;
+/* Buttons */
+.buttons button {
+  font-size: 1.2rem;
+  padding: 14px 22px;
+  margin: 8px;
+  border: none;
+  border-radius: 10px;
+  background: #ffd966;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+
+.buttons button:hover {
+  transform: scale(1.05);
+  background: #ffec99;
+}
+
+/* Special styling for “Do All Three” */
+button.all {
+  background: #ffc07a;
+}
+
+/* Download link */
+a.download {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #004aad;
 }
