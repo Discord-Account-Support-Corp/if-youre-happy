@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>If You're Happy and You Know It</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>🎵 If You're Happy and You Know It 🎵</h1>
+
+  <div class="characters">
+    <img src="assets/dora.png" alt="Dora" id="dora" class="character">
+    <img src="assets/pawpatrol.png" alt="Paw Patrol" id="paw" class="character">
+  </div>
+
+  <div class="buttons">
+    <button onclick="clap()">👏 Clap Your Hands</button>
+    <button onclick="stomp()">👣 Stomp Your Feet</button>
+    <button onclick="hooray()">🎉 Shout Hooray!</button>
+  </div>
+
+  <audio id="song" controls autoplay loop>
+    <source src="assets/happy.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
