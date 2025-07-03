@@ -2,27 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>If You're Happy and You Know It</title>
+  <title>If You're Happy and You Know It – Interactive</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <h1>🎵 If You're Happy and You Know It 🎵</h1>
 
+  <!-- Character images are optional now; keep/remove as you wish -->
   <div class="characters">
-    <img src="assets/dora.png" alt="Dora" id="dora" class="character">
-    <img src="assets/pawpatrol.png" alt="Paw Patrol" id="paw" class="character">
+    <img src="assets/dora.png"  alt="Dora"       class="character">
+    <img src="assets/pawpatrol.png" alt="Paw Patrol" class="character">
   </div>
 
+  <!-- Action buttons -->
   <div class="buttons">
-    <button onclick="clap()">👏 Clap Your Hands</button>
-    <button onclick="stomp()">👣 Stomp Your Feet</button>
-    <button onclick="hooray()">🎉 Shout Hooray!</button>
+    <button onclick="playClap()">👏 Clap</button>
+    <button onclick="playStomp()">👣 Stomp</button>
+    <button onclick="playHooray()">🎉 Hooray</button>
+    <button class="all" onclick="doAll()">🚀 Do All Three!</button>
   </div>
 
-  <audio id="song" controls autoplay loop>
-    <source src="assets/happy.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-  </audio>
+  <!-- Song backing track (optional loop) -->
+  <audio id="song" src="assets/happy.mp3" preload="auto" loop></audio>
+
+  <!-- Preview video of the boy doing the actions -->
+  <h2>See how the actions look:</h2>
+  <video id="preview" controls poster="assets/thumbnail.jpg">
+    <source src="assets/preview.mp4" type="video/mp4">
+    Your browser doesn’t support the video tag.
+  </video><br>
+
+  <!-- Download link for users who want the video in Photos / gallery -->
+  <a class="download" href="assets/preview.mp4" download="Happy_Actions_Preview.mp4">
+    📥 Download the preview video
+  </a>
 
   <script src="script.js"></script>
 </body>
