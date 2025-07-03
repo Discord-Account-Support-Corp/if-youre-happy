@@ -1,47 +1,91 @@
-/* General look & feel */
-body {
-  font-family: "Comic Sans MS", sans-serif;
-  background: #fffbf0;
-  text-align: center;
-  margin: 0;
-  padding: 20px;
+/* === Base === */
+:root {
+  --yellow:  #ffd966;
+  --yellow-hover: #ffec99;
+  --orange:  #ffc07a;
+  --orange-hover: #ffd1a1;
+  --focus:   #004aad;
 }
 
-h1 { margin-top: 0; }
+* { box-sizing: border-box; }
 
-/* Character images (optional) */
+body {
+  font-family: system-ui, "Comic Sans MS", sans-serif;
+  margin: 0;
+  background: #fffaf2;
+  color: #222;
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -1000px;
+  top: 0;
+  background: #000;
+  color: #fff;
+  padding: .5rem 1rem;
+}
+.skip-link:focus { left: 0; }
+
+/* Characters (decorative) */
+.characters {
+  margin: 1rem 0;
+}
 .character {
   height: 180px;
-  margin: 10px;
+  margin: 0 .5rem;
 }
 
-/* Buttons */
-.buttons button {
-  font-size: 1.2rem;
-  padding: 14px 22px;
-  margin: 8px;
+/* Song buttons */
+.song-controls {
+  margin: 1rem 0;
+}
+.song-controls button {
+  padding: .6rem 1rem;
+  font-size: 1rem;
+  margin: 0 .25rem;
+  background: var(--yellow);
   border: none;
-  border-radius: 10px;
-  background: #ffd966;
+  border-radius: .5rem;
   cursor: pointer;
-  transition: transform 0.15s;
 }
+.song-controls button:hover { background: var(--yellow-hover); }
+.song-controls button:focus { outline: 3px solid var(--focus); }
 
-.buttons button:hover {
-  transform: scale(1.05);
-  background: #ffec99;
+/* Action buttons */
+.buttons {
+  margin: 1rem 0 2rem;
 }
+.buttons button {
+  font-size: 1.25rem;
+  padding: .9rem 1.4rem;
+  margin: .4rem;
+  background: var(--yellow);
+  border: none;
+  border-radius: .6rem;
+  cursor: pointer;
+  transition: transform .15s;
+}
+.buttons button:hover        { background: var(--yellow-hover); }
+.buttons button:active,
+.buttons button:focus-visible { transform: scale(1.05); outline: 3px solid var(--focus); }
 
-/* Special styling for “Do All Three” */
-button.all {
-  background: #ffc07a;
-}
+button.all        { background: var(--orange); }
+button.all:hover  { background: var(--orange-hover); }
 
 /* Download link */
 a.download {
   display: inline-block;
-  margin-top: 12px;
-  font-size: 1rem;
+  margin-top: .75rem;
+  color: var(--focus);
   text-decoration: none;
-  color: #004aad;
+}
+a.download:focus { outline: 3px solid var(--focus); }
+
+/* Responsive tweaks */
+@media (max-width:600px) {
+  .character { height: 130px; }
+  .buttons button { font-size: 1.05rem; }
 }
