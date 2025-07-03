@@ -1,26 +1,40 @@
-/* Utility: play short SFX and give quick visual feedback */
-function flash(button) {
-  button.style.transform = "scale(1.15)";
-  setTimeout(() => button.style.transform = "scale(1)", 200);
+/* ===== Utility helpers ===== */
+function playSound(src) {
+  const audio = new Audio(src);
+  audio.play();
 }
 
-function playClap() {
-  flash(document.querySelectorAll(".buttons button")[0]);
-  new Audio('assets/boy_clap.mp3').play();
-}
+/* ===== Action buttons ===== */
+const clapBtn   = document.getElementById('btnClap');
+const stompBtn  = document.getElementById('btnStomp');
+const hoorayBtn = document.getElementById('btnHooray');
+const allBtn    = document.getElementById('btnAll');
 
-function playStomp() {
-  flash(document.querySelectorAll(".buttons button")[1]);
-  new Audio('assets/boy_stomp.mp3').play();
-}
+clapBtn  .addEventListener('click', () => playSound('assets/boy_clap.mp3' ));
+stompBtn .addEventListener('click', () => playSound('assets/boy_stomp.mp3'));
+hoorayBtn.addEventListener('click', () => playSound('assets/boy_hooray.mp3'));
+allBtn   .addEventListener('click', () => playSound('assets/boy_all.mp3'  ));
 
-function playHooray() {
-  flash(document.querySelectorAll(".buttons button")[2]);
-  new Audio('assets/boy_hooray.mp3').play();
-}
+/* Keyboard activation (Enter/Space) is automatic for <button>,
+   but we add down-arrow prompt for completeness */
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowDown') {
+    allBtn.focus();
+  }
+});
 
-function doAll() {
-  flash(document.querySelector(".buttons button.all"));
-  /* One combined recording keeps everything in sync */
-  new Audio('assets/boy_all.mp3').play();
-}
+/* ===== Music controls ===== */
+const song     = document.getElementById('song');
+const playBtn  = document.getElementById('playSong');
+const pauseBtn = document.getElementById('pauseSong');
+
+playBtn .addEventListener('click', () => song.play());
+pauseBtn.addEventListener('click', () => song.pause());
+
+/* Optional: announce to screen-reader when song starts/stops */
+const live = document.createElement('div');
+live.setAttribute('aria-live','polite');
+live.className = 'sr-only';
+document.body.append(live);
+song.addEventListener('play',  () => live.textContent = 'Music playing');
+song.addEventListener('pause', () => live.textContent = 'Music paused');
